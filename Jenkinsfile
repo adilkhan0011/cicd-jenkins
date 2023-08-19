@@ -22,8 +22,8 @@ docker build -f Dockerfile.node -t adilpriv/node-app .'''
 
     stage('docker login') {
       environment {
-        USER = 'adildot68'
-        PASS = 'system@6363'
+        USER = ''
+        PASS = ''
       }
       steps {
         sh 'docker login -u $USER -p $PASS'
