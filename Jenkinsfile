@@ -16,8 +16,8 @@ ls'''
 
     stage('build the images') {
       steps {
-        sh '''docker build -f Dockerfile.mongo -t adilpriv/mongo .
-docker build -f Dockerfile.node -t adilpriv/node-app .'''
+        sh '''docker build -f Dockerfile.mongo -t adilpriv/mongo:latest .
+docker build -f Dockerfile.node -t adilpriv/node-app:latest .'''
       }
     }
 
@@ -32,6 +32,13 @@ docker build -f Dockerfile.node -t adilpriv/node-app .'''
           }
         }
 
+      }
+    }
+
+    stage('push image to dockerhub') {
+      steps {
+        sh '''docker push/adilpriv/node-app:latest
+docker push/adilpriv/mongo:latest'''
       }
     }
 
