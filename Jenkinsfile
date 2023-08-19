@@ -9,7 +9,8 @@ pipeline {
 
     stage('Log') {
       steps {
-        sh 'ls'
+        sh '''pwd
+ls'''
       }
     }
 
