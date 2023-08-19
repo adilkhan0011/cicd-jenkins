@@ -15,8 +15,8 @@ pipeline {
 
     stage('build the images') {
       steps {
-        sh '''docker build -f dockerfile.mongo -t adilpriv/mongo .
-docker build -f dockerfile.node -t adilpriv/node-app .'''
+        sh '''docker build -f Dockerfile.mongo -t adilpriv/mongo .
+docker build -f Dockerfile.node -t adilpriv/node-app .'''
       }
     }
 
