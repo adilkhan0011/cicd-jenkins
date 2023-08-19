@@ -37,8 +37,8 @@ docker build -f Dockerfile.node -t adilpriv/node-app:latest .'''
 
     stage('push image to dockerhub') {
       steps {
-        sh '''docker push/adilpriv/node-app:latest
-docker push/adilpriv/mongo:latest'''
+        sh '''docker push /adilpriv/node-app:latest
+docker push /adilpriv/mongo:latest'''
       }
     }
 
