@@ -22,14 +22,15 @@ docker build -f Dockerfile.node -t adilpriv/node-app .'''
 
     stage('docker login') {
       steps {
-          script {
-              withCredentials([usernamePassword(credentialsId: 'my-global-credential-id', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                  echo "Username: $USERNAME"
-                  echo "Password: $PASSWORD"
-                  // Use $USERNAME and $PASSWORD in your pipeline steps
-                  sh "docker login -u $USERNAME -p $PASSWORD"
-              }
+        script {
+          withCredentials([usernamePassword(credentialsId: 'dockerhub_id', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+            echo "Username: $USERNAME"
+            echo "Password: $PASSWORD"
+            // Use $USERNAME and $PASSWORD in your pipeline steps
+            sh "docker login -u $USERNAME -p $PASSWORD"
           }
+        }
+
       }
     }
 
